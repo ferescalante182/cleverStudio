@@ -3901,21 +3901,21 @@ body.is-preload #banner:after {
   padding: 12em 0 10em 0;
   background-image: -moz-linear-gradient
       (top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url("../../images/banner8.jpeg");
+    url("../../images/bannser.jpeg");
   background-image: -webkit-linear-gradient(
       top,
       rgba(0, 0, 0, 0.2),
       rgba(0, 0, 0, 0.2)
     ),
-    url("../../images/banner8.jpeg");
+    url("../../images/bansner.jpeg");
   background-image: -ms-linear-gradient(
       top,
       rgba(0, 0, 0, 0.2),
       rgba(0, 0, 0, 0.2)
     ),
-    url("../../images/banner8.jpeg");
+    url("../../images/basnner.jpeg");
   background-image: linear-gradient(top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url("../../images/banner8.jpeg");
+    url("../../images/bannser.jpeg");
   background-attachment: fixed;
   background-position: center center;
   background-repeat: no-repeat;
@@ -4053,21 +4053,21 @@ body.landing #page-wrapper {
       rgba(0, 0, 0, 0.2),
       rgba(0, 0, 0, 0.2)
     ),
-    url("../../images/banner.jpg");
+    url("../../images/banner1.jpg");
   background-image: -webkit-linear-gradient(
       top,
       rgba(0, 0, 0, 0.2),
       rgba(0, 0, 0, 0.2)
     ),
-    url("../../images/banner.jpg");
+    url("../../images/banner1.jpg");
   background-image: -ms-linear-gradient(
       top,
       rgba(0, 0, 0, 0.2),
       rgba(0, 0, 0, 0.2)
     ),
-    url("../../images/banner.jpg");
+    url("../../images/banner1.jpg");
   background-image: linear-gradient(top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url("../../images/banner.jpg");
+    url("../../images/banner1.jpg");
   background-attachment: fixed;
   background-position: center center;
   background-repeat: no-repeat;
@@ -4080,7 +4080,7 @@ body.landing #footer {
 }
 
 body.is-mobile.landing #page-wrapper {
-  background: none;
+  background: #ffa0d2;
 }
 
 body.is-mobile.landing #banner,
@@ -4090,21 +4090,21 @@ body.is-mobile.landing .wrapper.style4 {
       rgba(0, 0, 0, 0.2),
       rgba(0, 0, 0, 0.2)
     ),
-    url("../../images/banner.jpg");
+    url("../../images/banner-mobile.jpg");
   background-image: -webkit-linear-gradient(
       top,
       rgba(0, 0, 0, 0.2),
       rgba(0, 0, 0, 0.2)
     ),
-    url("../../images/banner.jpg");
+    url("../../images/banner-mobile.jpg");
   background-image: -ms-linear-gradient(
       top,
       rgba(0, 0, 0, 0.2),
       rgba(0, 0, 0, 0.2)
     ),
-    url("../../images/banner.jpg");
+    url("../../images/banner-mobile.jpg");
   background-image: linear-gradient(top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url("../../images/banner.jpg");
+    url("../../images/banner-mobile.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -4456,4 +4456,204 @@ body.is-mobile.landing #footer {
 .CL-team-role {
   font-size: 1.1rem;
   color: #ffffff;
+}
+
+/*slideshow*/
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px; /* You can adjust this value based on your layout */
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+  width: 100%; /* Adjust width as necessary */
+  height: auto; /* Adjust height as necessary */
+}
+
+/* Display the first slide by default */
+.mySlides:first-child {
+  display: block;
+}
+
+/* Add styles for the number text (optional) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Optional: Add arrows for next and prev buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/*grid*/
+
+/* Targeting the 'spotlight' class for the Cursos Section */
+.spotlight {
+  background-color: #ffa0d2; /* Sets a pink background */
+}
+
+/* Ensuring the image and content within 'spotlight' are styled appropriately */
+.spotlight .image img {
+  width: 100%; /* Ensures the image takes the full width of its container */
+  height: auto; /* Keeps the image aspect ratio intact */
+}
+
+.spotlight .content {
+  padding: 20px; /* Adds some padding around the text for readability */
+  color: #ffffff; /* Dark text color for contrast against the pink background */
+}
+
+@media (max-width: 768px) {
+  .spotlight .content {
+    padding: 10px; /* Reduces padding on smaller screens */
+  }
+}
+
+/*blue bg*/
+
+/* Targeting the 'spotlight' class with ID 'three' for Marisol's section */
+#three.spotlight {
+  background-color: #ffa0d2; /* Sets a blue background */
+}
+
+/* Additional styling for the image and content within the 'spotlight' section */
+#three.spotlight .image img {
+  width: 100%; /* Ensures the image takes the full width of its container */
+  height: auto; /* Maintains the aspect ratio of the image */
+}
+
+#three.spotlight .content {
+  padding: 20px; /* Adds padding around the text for better readability */
+  color: #ffffff; /* Sets text color to white for contrast against the blue background */
+}
+
+@media (max-width: 768px) {
+  #three.spotlight .content {
+    padding: 10px; /* Adjusts padding for smaller screens */
+  }
+}
+
+/*footer color*/
+
+/* Footer Styling */
+footer {
+  background-color: #1d242a; /* Sets the footer background color */
+  color: #ffffff; /* Optional: Sets text color to white for contrast */
+  padding: 20px 0; /* Optional: Adds vertical padding */
+  text-align: center; /* Optional: Centers the text within the footer */
+}
+
+/* Additional specific styling for footer content */
+footer a {
+  color: #ffffff; /* Sets links color to white for visibility */
+  text-decoration: none; /* Removes underline from links */
+}
+
+footer a:hover {
+  text-decoration: underline; /* Adds underline on hover for better user interaction */
+}
+
+* {
+  border: 1px solid red; /* Adds a red border around every element */
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden; /* Prevents horizontal scroll */
+}
+
+/* Footer Styling */
+footer {
+  background-color: #1d242a; /* Ensures solid background color */
+  color: #ffffff; /* Sets text color to white for contrast */
+  padding: 20px 0; /* Adds vertical padding */
+  text-align: center; /* Centers the text within the footer */
+  opacity: 0; /* Ensures the footer is fully opaque */
+}
+
+/* Additional specific styling for footer content */
+footer a {
+  color: #ffffff; /* Sets links color to white for visibility */
+  text-decoration: none; /* Removes underline from links */
+}
+
+footer a:hover {
+  text-decoration: underline; /* Adds underline on hover for better user interaction */
+}
+
+footer {
+  background-color: #1d242a !important; /* Forces the background color */
+  opacity: 1 !important; /* Forces full opacity */
 }

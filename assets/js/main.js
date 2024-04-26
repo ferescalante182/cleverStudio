@@ -164,4 +164,58 @@
   addEventListener("resize", (event) => {
     resizeTextToFit();
   });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    var featureList = document.getElementById("featureList");
+    var items = Array.prototype.slice.call(featureList.children);
+
+    // Define a set of AOS animations
+    var animations = [
+      "fade",
+      "fade-up",
+      "fade-down",
+      "fade-left",
+      "fade-right",
+      "fade-up-right",
+      "fade-up-left",
+      "fade-down-right",
+      "fade-down-left",
+      "flip-up",
+      "flip-down",
+      "flip-left",
+      "flip-right",
+      "zoom-in",
+      "zoom-in-up",
+      "zoom-in-down",
+      "zoom-in-left",
+      "zoom-in-right",
+      "zoom-out",
+      "zoom-out-up",
+      "zoom-out-down",
+      "zoom-out-left",
+      "zoom-out-right",
+    ];
+
+    // Randomly assign an AOS animation to each item
+    items.forEach(function (item) {
+      var randomAnimation =
+        animations[Math.floor(Math.random() * animations.length)];
+      item.setAttribute("data-aos", randomAnimation);
+    });
+
+    // Shuffle and append items
+    shuffleArray(items).forEach(function (item) {
+      featureList.appendChild(item);
+    });
+  });
+
+  function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  }
 })(jQuery);
