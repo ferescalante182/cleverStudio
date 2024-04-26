@@ -3508,7 +3508,6 @@ button:disabled,
   position: absolute;
   right: 0;
   top: 0;
-  vertical-align: middle;
   width: 7em;
 }
 
@@ -4656,4 +4655,33 @@ footer a:hover {
 footer {
   background-color: #1d242a !important; /* Forces the background color */
   opacity: 1 !important; /* Forces full opacity */
+}
+
+/*grid*/
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(200px, 1fr)
+  ); /* Creates as many 200px columns as can fit */
+  gap: 10px; /* Space between images */
+  padding: 10px;
+}
+
+.grid-item {
+  overflow: hidden; /* Keeps the image within the boundaries of the grid item */
+  position: relative; /* For potential overlays or additional styling */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds visual depth */
+  transition: transform 0.3s ease-in-out; /* Smooth animation on hover */
+}
+
+.grid-item img {
+  width: 100%; /* Ensures the image covers the full width of the grid item */
+  height: 100%; /* Ensures the image covers the full height of the grid item */
+  object-fit: cover; /* Ensures the image is cropped to fit the container without distorting aspect ratio */
+}
+
+.grid-item:hover {
+  transform: scale(1.1); /* Scale up the grid item on hover */
+  z-index: 10; /* Makes the hovered item pop out */
 }
