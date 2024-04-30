@@ -4147,59 +4147,6 @@ body.is-mobile.landing #footer {
   }
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-}
-.grid-item {
-  cursor: pointer;
-  overflow: hidden; /* Ensures the image doesn't break the layout */
-}
-.grid-image {
-  width: 100%; /* Makes the image fully responsive within the container */
-  height: auto; /* Maintains the aspect ratio of the image */
-  object-fit: cover; /* Ensures the image covers the area without distortion */
-  border-radius: 8px; /* Optional: adds rounded corners to the images */
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 100;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0, 0, 0, 0.4);
-}
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.modal-content img {
-  max-width: 100%; /* Ensures the image is not wider than the modal */
-  height: auto; /* Maintains the aspect ratio */
-  display: block; /* Removes any extra space below the image */
-  margin-bottom: 10px; /* Adds some space between images if you have more than one */
-}
 .card {
   margin-bottom: 30px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -4656,32 +4603,96 @@ footer {
   background-color: #1d242a !important; /* Forces the background color */
   opacity: 1 !important; /* Forces full opacity */
 }
+/* General body styling */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
 
-/*grid*/
+/* Wrapper styling */
+.wrapper {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Grid Container */
 .grid-container {
   display: grid;
   grid-template-columns: repeat(
     auto-fit,
-    minmax(200px, 1fr)
-  ); /* Creates as many 200px columns as can fit */
-  gap: 10px; /* Space between images */
-  padding: 10px;
+    minmax(150px, 1fr)
+  ); /* Adjusted to smaller size for fitting */
+  gap: 10px; /* Consistent smaller gap */
+  padding: 20px;
+  margin: 0 auto; /* Center the grid */
 }
 
+/* Grid Items */
 .grid-item {
-  overflow: hidden; /* Keeps the image within the boundaries of the grid item */
-  position: relative; /* For potential overlays or additional styling */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds visual depth */
-  transition: transform 0.3s ease-in-out; /* Smooth animation on hover */
+  overflow: hidden; /* Clipping any overflow */
+  position: relative; /* For positioning inner elements like 'close' button */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.3s ease-in-out; /* Smooth transform transition */
+  background: #fff; /* Background color for grid items */
+  border: 1px solid #ccc; /* Border for grid items */
 }
 
 .grid-item img {
-  width: 100%; /* Ensures the image covers the full width of the grid item */
-  height: 100%; /* Ensures the image covers the full height of the grid item */
-  object-fit: cover; /* Ensures the image is cropped to fit the container without distorting aspect ratio */
+  width: 100%; /* Full width */
+  height: auto; /* Maintain aspect ratio */
+  cursor: pointer; /* Indicate interactiveness */
+  transition: transform 0.3s ease-in-out; /* Ensure transition is present for hover effect */
 }
 
-.grid-item:hover {
-  transform: scale(1.1); /* Scale up the grid item on hover */
-  z-index: 10; /* Makes the hovered item pop out */
+.grid-item:hover img {
+  transform: scale(1.1); /* Zoom effect on hover */
+}
+
+/* Modal styling */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000; /* High z-index to be on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+}
+
+.modal-content {
+  position: relative;
+  background-color: #ffa0d2; /* Pink background for the modal content */
+  margin: 10% auto; /* Centered with margin auto */
+  padding: 20px;
+  width: 40%; /* Width adjusted to a percentage for responsiveness */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Responsive adjustments for modals */
+@media screen and (max-width: 600px) {
+  .modal-content {
+    width: 90%; /* Full width on smaller screens */
+  }
+}
+
+/* Clearfix for floated 'close' button */
+.close::after {
+  content: "";
+  display: table;
+  clear: both;
 }

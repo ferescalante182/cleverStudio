@@ -77,18 +77,32 @@
   AOS.init(); // Initialize AOS
 
   // MODALS
-  // Function to open modal
-  function openModal(modalId) {
-    var modal = document.querySelector(modalId);
-    modal.style.display = "block";
-    modal.setAttribute("aria-hidden", "false");
 
-    // Disable background interaction
-    document.querySelector("body").style.pointerEvents = "none";
-    modal.style.pointerEvents = "auto"; // Enable pointer events on the modal
-  }
+  document.addEventListener("DOMContentLoaded", function () {
+    // Open modal function
+    document.querySelectorAll(".modal-open").forEach((item) => {
+      item.addEventListener("click", function (event) {
+        event.preventDefault();
+        const modal = document.querySelector(this.getAttribute("href"));
+        modal.style.display = "block";
+      });
+    });
 
-  // Function to close modal
+    // Close modal function
+    document.querySelectorAll(".close").forEach((button) => {
+      button.addEventListener("click", function () {
+        this.closest(".modal").style.display = "none";
+      });
+    });
+
+    // Close modal on outside click
+    window.addEventListener("click", function (event) {
+      if (event.target.classList.contains("modal")) {
+        event.target.style.display = "none";
+      }
+    });
+  });
+
   function closeModal(modalId) {
     var modal = document.querySelector(modalId);
     modal.style.display = "none";
@@ -97,27 +111,6 @@
     // Re-enable background interaction
     document.querySelector("body").style.pointerEvents = "auto";
   }
-
-  // Event listeners for grid items
-  document.querySelectorAll(".grid-item").forEach((item) => {
-    item.addEventListener("click", function () {
-      openModal(this.getAttribute("data-target"));
-    });
-  });
-
-  // Event listeners for close buttons
-  document.querySelectorAll(".modal .close").forEach((item) => {
-    item.addEventListener("click", function () {
-      closeModal("#" + this.closest(".modal").id);
-    });
-  });
-
-  // Close modal when clicking outside of the modal content
-  window.addEventListener("click", function (event) {
-    if (event.target.className === "modal") {
-      closeModal("#" + event.target.id);
-    }
-  });
 
   /**
   Swiper:
@@ -164,58 +157,4 @@
   addEventListener("resize", (event) => {
     resizeTextToFit();
   });
-
-  document.addEventListener("DOMContentLoaded", function () {
-    var featureList = document.getElementById("featureList");
-    var items = Array.prototype.slice.call(featureList.children);
-
-    // Define a set of AOS animations
-    var animations = [
-      "fade",
-      "fade-up",
-      "fade-down",
-      "fade-left",
-      "fade-right",
-      "fade-up-right",
-      "fade-up-left",
-      "fade-down-right",
-      "fade-down-left",
-      "flip-up",
-      "flip-down",
-      "flip-left",
-      "flip-right",
-      "zoom-in",
-      "zoom-in-up",
-      "zoom-in-down",
-      "zoom-in-left",
-      "zoom-in-right",
-      "zoom-out",
-      "zoom-out-up",
-      "zoom-out-down",
-      "zoom-out-left",
-      "zoom-out-right",
-    ];
-
-    // Randomly assign an AOS animation to each item
-    items.forEach(function (item) {
-      var randomAnimation =
-        animations[Math.floor(Math.random() * animations.length)];
-      item.setAttribute("data-aos", randomAnimation);
-    });
-
-    // Shuffle and append items
-    shuffleArray(items).forEach(function (item) {
-      featureList.appendChild(item);
-    });
-  });
-
-  function shuffleArray(array) {
-    for (var i = array.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
-    }
-    return array;
-  }
 })(jQuery);
