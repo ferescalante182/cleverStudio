@@ -224,17 +224,176 @@
       <!-- Grid Item 1 -->
       <div class="grid-item">
         <a href="#modal1" class="modal-open">
-          <img src="images/sillondobleatras.jpg" alt="Image 1">
+            <img src="images/sillondobleatras.jpg" alt="Image 1">
         </a>
         <div id="modal1" class="modal">
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Modal Title awwe1</h2>
-            <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce malesuada lacus vel ornare finibus. Maecenas nec diam cursus, fermentum massa eget, ultrices eros. Ut lacinia at mi eget tempus. In sit amet nisi non augue efficitur placerat at at lorem.</strong></p>
-            <img src="images/sillondoble.jpg" alt="Image 1">
-          </div>
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Modal Title awwe1</h2>
+                <div class="enlarged-image-container">
+                    <span class="prev">&laquo;</span>
+                    <img id="enlargedImage" src="" alt="Enlarged Image">
+                    <span class="next">&raquo;</span>
+                </div>
+                <div class="mosaic-grid">
+                    <img src="images/sillaAzulDetails.jpg" alt="Image 1">
+                    <img src="images/sillondoble2.jpg" alt="Image 1">
+                    <img src="images/sillondoble3.jpg" alt="Image 1">
+                    <img src="images/sillaoriginal.jpg" alt="Image 1">
+                    <img src="images/sillonNegro.JPG" alt="Image 1">
+                    <img src="images/sillarojaoriginal.jpg" alt="Image 1">
+                    <img src="images/sillondobledetalles.jpg" alt="Image 1">
+                    <img src="images/sillondoblezoom.jpg" alt="Image 1">
+                    <img src="images/sillondoble.jpg" alt="Image 1">
+                </div>
+                <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce malesuada lacus vel ornare finibus. Maecenas nec diam cursus, fermentum massa eget, ultrices eros. Ut lacinia at mi eget tempus. In sit amet nisi non augue efficitur placerat at at lorem.</strong></p>
+            </div>
         </div>
-      </div>
+    </div>
+    
+    <style>
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+    
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto; /* Reduced to fit enlarged image */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
+        text-align: center; /* Center align the content */
+    }
+    
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    .mosaic-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        margin-top: 0px; /* Add some space between the enlarged image and the grid */
+    }
+    
+    .mosaic-grid img {
+        width: 50%; /* Make images responsive within their grid cell */
+        height: auto;
+        cursor: pointer; /* Indicate that images are clickable */
+        margin: 1px
+    }
+    
+    .enlarged-image-container {
+        display: none; /* Hidden by default */
+        text-align: center;
+        position: relative;
+        margin-bottom: 20px; /* Add some space below the enlarged image */
+    }
+    
+    .enlarged-image-container img {
+        width: 20%;
+        height: auto;
+        margin: 0 auto; /* Center the enlarged image */
+    }
+    
+    .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: rgb(103, 48, 48);
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+    }
+    
+    .prev {
+        left: 0;
+        border-radius: 3px 0 0 3px;
+    }
+    
+    .next {
+        right: 0;
+        border-radius: 3px 3px 0 0;
+    }
+    
+    .prev:hover, .next:hover {
+        background-color: rgba(0,0,0,0.8);
+    }
+    </style>
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const modal = document.getElementById("modal1");
+        const images = document.querySelectorAll(".mosaic-grid img");
+        const enlargedImageContainer = document.querySelector(".enlarged-image-container");
+        const enlargedImage = document.getElementById("enlargedImage");
+        const close = document.querySelector(".close");
+        const prev = document.querySelector(".prev");
+        const next = document.querySelector(".next");
+        let currentIndex = 0;
+    
+        function showImage(index) {
+            enlargedImage.src = images[index].src;
+            enlargedImageContainer.style.display = "block";
+        }
+    
+        function closeModal() {
+            modal.style.display = "none";
+            enlargedImageContainer.style.display = "none";
+        }
+    
+        images.forEach((img, index) => {
+            img.addEventListener("click", () => {
+                currentIndex = index;
+                showImage(currentIndex);
+                modal.style.display = "block"; // Show the modal when an image is clicked
+            });
+        });
+    
+        close.addEventListener("click", closeModal);
+    
+        prev.addEventListener("click", () => {
+            currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+            showImage(currentIndex);
+        });
+    
+        next.addEventListener("click", () => {
+            currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+            showImage(currentIndex);
+        });
+    
+        window.addEventListener("click", (event) => {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+    });
+    </script>
+    
       <!-- Continue for other grid items -->
        <!-- Grid Item 2 -->
        <div class="grid-item">
