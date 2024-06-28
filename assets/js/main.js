@@ -1,5 +1,5 @@
 (function ($) {
-  var $window = $(window),
+  const $window = $(window),
     $body = $("body"),
     $wrapper = $("#page-wrapper"),
     $banner = $("#banner"),
@@ -15,20 +15,21 @@
   });
 
   // Play initial animations on page load.
-  $window.on("load", function () {
-    window.setTimeout(function () {
+  $window.on("load", () => {
+    setTimeout(() => {
       $body.removeClass("is-preload");
     }, 100);
   });
 
   // Mobile?
-  if (browser.mobile) $body.addClass("is-mobile");
-  else {
-    breakpoints.on(">medium", function () {
+  if (browser.mobile) {
+    $body.addClass("is-mobile");
+  } else {
+    breakpoints.on(">medium", () => {
       $body.removeClass("is-mobile");
     });
 
-    breakpoints.on("<=medium", function () {
+    breakpoints.on("<=medium", () => {
       $body.addClass("is-mobile");
     });
   }
@@ -56,19 +57,19 @@
 
   // Header.
   if ($banner.length > 0 && $header.hasClass("alt")) {
-    $window.on("resize", function () {
+    $window.on("resize", () => {
       $window.trigger("scroll");
     });
 
     $banner.scrollex({
       bottom: $header.outerHeight() + 1,
-      terminate: function () {
+      terminate: () => {
         $header.removeClass("alt");
       },
-      enter: function () {
+      enter: () => {
         $header.addClass("alt");
       },
-      leave: function () {
+      leave: () => {
         $header.removeClass("alt");
       },
     });
@@ -77,13 +78,12 @@
   AOS.init(); // Initialize AOS
 
   // MODALS
-
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", () => {
     // Open modal function
     document.querySelectorAll(".modal-open").forEach((item) => {
-      item.addEventListener("click", function (event) {
+      item.addEventListener("click", (event) => {
         event.preventDefault();
-        const modal = document.querySelector(this.getAttribute("href"));
+        const modal = document.querySelector(item.getAttribute("href"));
         modal.style.display = "block";
       });
     });
@@ -96,37 +96,29 @@
     });
 
     // Close modal on outside click
-    window.addEventListener("click", function (event) {
-      if (event.target.classList.contains("modal")) {
-        event.target.style.display = "none";
+    window.addEventListener("click", (event) => {
+      const modal = document.querySelector(".modal");
+      if (event.target === modal) {
+        modal.style.display = "none";
       }
     });
   });
 
   function closeModal(modalId) {
-    var modal = document.querySelector(modalId);
+    const modal = document.querySelector(modalId);
     modal.style.display = "none";
     modal.setAttribute("aria-hidden", "true");
-
-    // Re-enable background interaction
     document.querySelector("body").style.pointerEvents = "auto";
   }
 
-  /**
-  Swiper:
-  https://swiperjs.com/
-**/
+  // Swiper initialization
   const swiper = new Swiper(".swiperCarousel", {
     slidesPerView: 3,
     centeredSlides: true,
     spaceBetween: 10,
-    keyboard: {
-      enabled: true,
-    },
+    keyboard: { enabled: true },
     loop: true,
-    pagination: {
-      el: ".swiper-pagination",
-    },
+    pagination: { el: ".swiper-pagination" },
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
@@ -136,10 +128,9 @@
   const slides = document.getElementsByClassName("swiper-slide");
   for (const slide of slides) {
     slide.addEventListener("click", () => {
-      const { className } = slide;
-      if (className.includes("swiper-slide-next")) {
+      if (slide.className.includes("swiper-slide-next")) {
         swiper.slideNext();
-      } else if (className.includes("swiper-slide-prev")) {
+      } else if (slide.className.includes("swiper-slide-prev")) {
         swiper.slidePrev();
       }
     });
@@ -153,10 +144,73 @@
     }
     textFit(quoteEls, { maxFontSize: 14 });
   }
+
   resizeTextToFit();
-  addEventListener("resize", (event) => {
-    resizeTextToFit();
+  addEventListener("resize", resizeTextToFit);
+
+  // Get the modal elements
+  var modals = document.querySelectorAll('.modal');
+
+  // Get the button that opens the modal
+  var modalBtns = document.querySelectorAll('.modal-open');
+
+  // Get the <span> element that closes the modal
+  var spans = document.getElementsByClassName("close");
+
+  // When the user clicks on the button, open the modal
+  modalBtns.forEach(function(btn, index) {
+    btn.onclick = function() {
+      modals[index].style.display = "block";
+    }
   });
+
+  // When the user clicks on <span> (x), close the modal
+  Array.from(spans).forEach(function(span, index) {
+    span.onclick = function() {
+      modals[index].style.display = "none";
+    }
+  });
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+      event.target.style.display = "none";
+    }
+  }
+
+
+  document.addEventListener("DOMContentLoaded", function() {
+    var featureList = document.getElementById('featureList');
+    var items = Array.prototype.slice.call(featureList.children);
+
+    // Define a set of AOS animations
+    var animations = [
+      'fade', 'fade-up', 'fade-down', 'fade-left', 'fade-right', 
+      'fade-up-right', 'fade-up-left', 'fade-down-right', 'fade-down-left',
+      'flip-up', 'flip-down', 'flip-left', 'flip-right',
+      'zoom-in', 'zoom-in-up', 'zoom-in-down', 'zoom-in-left', 'zoom-in-right',
+      'zoom-out', 'zoom-out-up', 'zoom-out-down', 'zoom-out-left', 'zoom-out-right'
+    ];
+
+    // Randomly assign an AOS animation to each item
+    items.forEach(function(item) {
+      var randomAnimation = animations[Math.floor(Math.random() * animations.length)];
+      item.setAttribute('data-aos', randomAnimation);
+    });
+
+    // Shuffle and append items
+    shuffleArray(items).forEach(function(item) {
+      featureList.appendChild(item);
+    });
+  });
+
+  function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  }
 })(jQuery);
-
-
