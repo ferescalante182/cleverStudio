@@ -53,126 +53,80 @@
 
 
 
-<!-- One -->
-<section id="one" class="wrapper style1 special">
-  ...
-</section>
+
 
 <!-- One -->
 <section id="one" class="wrapper style1 special">
-  <div class="inner">
+  <div class="inner" >
     <header class="major" data-aos="fade-down" data-aos-duration="800">
       <h2>
         Bienvenidxs a Clever Studio.<br />
-        Aqui va una pequeña intro y descripcion.
+   
       </h2>
       <p data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
-        Descripcion mas detallada, aqui se explica un poco mas de sobre
-        los servicios.<br />
-        Se puede ser un poco mas detallado.
+        Somos un estudio de diseño compuesto por un equipo de jóvenes profesionales apasionados por el arte del rediseño y la restauración de muebles. Nuestro objetivo es crear propuestas innovadoras y únicas, que no solo capten la atención de nuestros clientes, sino que también les brinden una sensación de bienestar al admirarlos y utilizarlos. Ofreciendo siempre materiales y resultados de alta calidad.<br />
+       
       </p>
     </header>
+</div>    
+</section>
     <!-- Image added here, adjust 'src' to your image path -->
 
 <!--slideshow-->
 
-  
-<!-- New Slideshow Section -->
-<section id="new-slideshow" class="wrapper style1 special">
-  <div class="inner">
-    <div class="slideshow-container">
-      <!-- Full-width images with number and caption text -->
-      <div class="mySlides fade">
-        <div class="numbertext">1 / 3</div>
-        <img src="images/studio1.png" style="width:100%">
-        <div class="text">Caption One</div>
+<div class="slideshow-container">
+  <div class="slideshow-inner">
+      <div class="mySlides">
+          <img src="images/slider-1.png" alt="Slide 1">
       </div>
 
-      <div class="mySlides fade">
-        <div class="numbertext">2 / 3</div>
-        <img src="images/studio1.png" style="width:100%">
-        <div class="text">Caption Two</div>
+      <div class="mySlides">
+          <img src="images/slider-2.png" alt="Slide 2">
       </div>
 
-      <div class="mySlides fade">
-        <div class="numbertext">3 / 3</div>
-        <img src="images/studio1.png" style="width:100%">
-        <div class="text">Caption Three</div>
+      <div class="mySlides">
+          <img src="images/slider-3.png" alt="Slide 3">
       </div>
 
-      <!-- Next and previous buttons -->
       <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
       <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div>
-    <br>
-
-    <!-- The dots/circles -->
-    <div style="text-align:center">
-      <span class="dot" onclick="currentSlide(1)"></span>
-      <span class="dot" onclick="currentSlide(2)"></span>
-      <span class="dot" onclick="currentSlide(3)"></span>
-    </div>
-  </div>  </div>
-</section>
+  </div>
+</div>
 
 
+<script>
+  let slideIndex = 1;
+  showSlides(slideIndex);
 
-     <!-- Two -->
-<section id="two" class="wrapper alt style2">
-  <!-- First Spotlight -->
-  <section class="spotlight" data-aos="fade-right" data-aos-duration="800">
-    <div class="image" data-aos="zoom-in" data-aos-delay="100"><img src="images/sillonNegro.JPG" alt="" /></div>
-    <div class="content">
-      <h2 data-aos="fade-down" data-aos-delay="200">
-        Pequeño intro/ todo mueble<br />
-        tiene una historia.
-      </h2>
-      <p data-aos="fade-up" data-aos-delay="300">
-        Introduccion nostalgica, sobre todo mueble puede revivir. Lorem
-        ipsum dolor sit amet consectetur adipisicing elit. Atque, iste
-        vitae! Corrupti ratione magnam beatae.
-      </p>
-    </div>
-  </section>
+  function plusSlides(n) {
+      showSlides(slideIndex += n);
+  }
 
-  
+  function currentSlide(n) {
+      showSlides(slideIndex = n);
+  }
 
-  <!-- Second Spotlight -->
-  <section class="spotlight" data-aos="fade-right" data-aos-duration="800">
-    <div class="image" data-aos="zoom-in" data-aos-delay="100"><img src="images/zoomAmarillo.JPG" alt="" /></div>
-    <div class="content">
-      <h2 data-aos="slide-up" data-aos-delay="200">Algo asi como "le damos amor"<br /></h2>
-      <p data-aos="zoom-in" data-aos-delay="300">
-        Se elabora sobre el proceso en Clever Studio. Lorem ipsum dolor,
-        sit amet consectetur adipisicing elit. Iure reprehenderit
-        voluptas sequi libero! Dolore numquam, deleniti commodi iure
-        consequuntur dicta!
-      </p>
-    </div>
-  </section>
-
-  <!-- Third Spotlight -->
-  <section class="spotlight" data-aos="fade-up" data-aos-duration="800">
-    <div class="image" data-aos="zoom-in" data-aos-delay="100">
-      <img src="images/sillonAmarillo.JPG" alt="" />
-    </div>
-    <div class="content">
-      <h2 data-aos="flip-left" data-aos-delay="200">
-        El producto final,<br />
-        despues de mucho trabajo, elaborar brevemente.
-      </h2>
-      <p data-aos="fade-up" data-aos-delay="300">
-        Aqui se elabora mas. Lorem ipsum dolor sit, amet consectetur
-        adipisicing elit. Provident similique laboriosam quasi, alias
-        inventore facilis saepe odio architecto ratione ut adipisci esse
-        quas harum veniam quia aspernatur nam doloribus consequatur?
-      </p>
-    </div>
-  </section>
-</section>
+  function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+  }
+</script>
 
 
-<!--about the artist-->
+
+
+
 
 
 
@@ -213,114 +167,239 @@
 
 
 
+<!--grid with modals-->
+<section id="new-slideshow" class="wrapper style1 special">
+  <h2>PIEZAS DESTACADAS</h2>
+  <div class="grid-container">
+    <div class="grid-item" data-aos="fade-up">
+      <a href="#modal1" class="modal-open">
+        <img src="images/GRID/Banca Ale Jazo/IMG_20221007_105053.jpg" alt="Image 1">
+      </a>
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <img src="images/GRID/Banca Ale Jazo/IMG_20220926_143646.jpg" alt="Image 1">
+          <img src="images/GRID/Banca Ale Jazo/IMG_20221007_105028.jpg" alt="Image 1">
 
-  <!--grid with modals-->
-  <section id="new-slideshow" class="wrapper style1 special">
-    <h2>Gallery</h2>
-    <div class="grid-container">
-      <!-- Grid items with modals -->
-      <!-- Repeat this block for each item -->
-      <!-- Change #modal1, #modal2, ... accordingly -->
-      <!-- Replace 'images/imageX.jpg' with your actual images -->
-      <!-- Change 'Modal Title X' and the image paths inside modals as needed -->
-      <!-- Grid Item 1 -->
-      <div class="grid-item">
-        <a href="#modal1" class="modal-open">
-          <img src="images/sillondobleatras.jpg" alt="Image 1">
-        </a>
-        <div id="modal1" class="modal">
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Modal Title awwe1</h2>
-            <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce malesuada lacus vel ornare finibus. Maecenas nec diam cursus, fermentum massa eget, ultrices eros. Ut lacinia at mi eget tempus. In sit amet nisi non augue efficitur placerat at at lorem.</strong></p>
-            <img src="images/sillondoble.jpg" alt="Image 1">
-          </div>
-        </div>
-      </div>
-      <!-- Continue for other grid items -->
-       <!-- Grid Item 2 -->
-       <div class="grid-item">
-        <a href="#modal2" class="modal-open">
-          <img src="images/cosarara.jpg" alt="Image 1">
-        </a>
-        <div id="modal2" class="modal">
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Modal Title 1</h2>
-            <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce malesuada lacus vel ornare finibus. Maecenas nec diam cursus, fermentum massa eget, ultrices eros. Ut lacinia at mi eget tempus. In sit amet nisi non augue efficitur placerat at at lorem.</strong></p>
-            <img src="images/cosarara2.jpg" alt="Image 1">
-          </div>
-        </div>
-      </div>
-       <!-- Grid Item 3 -->
-       <div class="grid-item">
-        <a href="#modal3" class="modal-open">
-          <img src="images/mesa.jpg" alt="Image 1">
-        </a>
-        <div id="modal3" class="modal">
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Modal Title 1</h2>
-            <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce malesuada lacus vel ornare finibus. Maecenas nec diam cursus, fermentum massa eget, ultrices eros. Ut lacinia at mi eget tempus. In sit amet nisi non augue efficitur placerat at at lorem.</strong></p>
-            <img src="images/mesa2.jpg" alt="Image 1">
-          </div>
-        </div>
-      </div>
-       <!-- Grid Item 4 -->
-       <div class="grid-item">
-        <a href="#modal4" class="modal-open">
-          <img src="images/sillaAzulDetails.jpg" alt="Image 1">
-        </a>
-        <div id="modal4" class="modal">
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Modal Title 1</h2>
-            <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce malesuada lacus vel ornare finibus. Maecenas nec diam cursus, fermentum massa eget, ultrices eros. Ut lacinia at mi eget tempus. In sit amet nisi non augue efficitur placerat at at lorem.</strong></p>
-            <img src="images/sillaAzulFront.jpg" alt="Image 1">
-          </div>
-        </div>
-      </div>
-       <!-- Grid Item 5 -->
-       <div class="grid-item">
-        <a href="#modal5" class="modal-open">
-          <img src="images/salaAmarillaZoom.jpg" alt="Image 1">
-        </a>
-        <div id="modal5" class="modal">
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Modal Title 1</h2>
-            <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce malesuada lacus vel ornare finibus. Maecenas nec diam cursus, fermentum massa eget, ultrices eros. Ut lacinia at mi eget tempus. In sit amet nisi non augue efficitur placerat at at lorem.</strong></p>
-            <img src="images/salaAmarilla.jpg" alt="Image 1">
-          </div>
-        </div>
-      </div> 
-      <!-- Grid Item 6 -->
-      <div class="grid-item">
-        <a href="#modal6" class="modal-open">
-          <img src="images/sillarojaatras.jpg" alt="Image 1">
-        </a>
-        <div id="modal6" class="modal">
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Modal Title 6er</h2>
-            <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce malesuada lacus vel ornare finibus. Maecenas nec diam cursus, fermentum massa eget, ultrices eros. Ut lacinia at mi eget tempus. In sit amet nisi non augue efficitur placerat at at lorem.</strong></p>
-            <img src="images/sillaroja.jpg" alt="Image 1">
-            <h2>ewr</h2>
-            <img src="images/sillaroja.jpg" alt="Image 1">
+          <img src="images/GRID/Banca Ale Jazo/IMG_20221007_105053.jpg" alt="Image 1">
 
-            <img src="images/sillaroja.jpg" alt="Image 1">
+          <img src="images/GRID/Banca Ale Jazo/IMG_20221007_105205.jpg" alt="Image 1">
 
-          </div>
-        </div>
-      </div>
-      
-   
+          <img src="images/GRID/Banca Ale Jazo/IMG_20221007_105218.jpg" alt="Image 1">
 
         </div>
       </div>
-
     </div>
+    <div class="grid-item" data-aos="fade-up">
+      <a href="#modal2" class="modal-open">
+        <img src="images/GRID/Sofá Cama Azul/IMG_20210422_115552.jpg" alt="Image 2">
+      </a>
+      <div id="modal2" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <img src="images/GRID/Sofá Cama Azul/IMG_20210329_125359.jpg" alt="Image 2">
+          <img src="images/GRID/Sofá Cama Azul/IMG_20210422_115552.jpg" alt="Image 2">
+          <img src="images/GRID/Sofá Cama Azul/IMG_20210422_115710.jpg" alt="Image 2">
+          <img src="images/GRID/Sofá Cama Azul/IMG_20210422_115908.jpg" alt="Image 2">
+          <img src="images/GRID/Sofá Cama Azul/IMG_20210422_115836.jpg" alt="Image 2">
+
+        </div>
+      </div>
+    </div>
+    <div class="grid-item" data-aos="fade-up">
+      <a href="#modal3" class="modal-open">
+        <img src="images/GRID/Librero Navajo/IMG_20210721_172347.jpg" alt="Image 3">
+      </a>
+      <div id="modal3" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <img src="images/GRID/Librero Navajo/IMG_20210721_172324.jpg" alt="Image 3">
+          <img src="images/GRID/Librero Navajo/IMG_20210721_172347.jpg">
+          <img src="images/GRID/Librero Navajo/IMG_20210721_173908.jpg" alt="Image 3">
+          
+        </div>
+      </div>
+    </div>
+    <div class="grid-item" data-aos="fade-up">
+      <a href="#modal4" class="modal-open">
+        <img src="images/GRID/Mesa de Media Luna/IMG_20210331_164647.jpg" alt="Image 4">
+      </a>
+      <div id="modal4" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <img src="images/GRID/Mesa de Media Luna/IMG_20210317_163713.jpg" alt="Image 4">
+          <img src="images/GRID/Mesa de Media Luna/IMG_20210331_164354.jpg" alt="Image 4">
+          <img src="images/GRID/Mesa de Media Luna/IMG_20210331_164622.jpg" alt="Image 4">
+          <img src="images/GRID/Mesa de Media Luna/IMG_20210331_164647.jpg" alt="Image 4">
+          <img src="images/GRID/Mesa de Media Luna/IMG_20210331_164738.jpg" alt="Image 4">
+        </div>
+      </div>
+    </div>
+    <div class="grid-item" data-aos="fade-up">
+      <a href="#modal5" class="modal-open">
+        <img src="images/GRID/Pardo Cafe/IMG_20230417_135328.jpg" alt="Image 5">
+      </a>
+      <div id="modal5" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <img src="images/GRID/Pardo Cafe/IMG_20230417_135337 (1).jpg" alt="Image 5">
+          <img src="images/GRID/Pardo Cafe/IMG_20230412_115401.jpg" alt="Image 5">
+          <img src="images/GRID/Pardo Cafe/IMG_20230417_135443.jpg" alt="Image 5">
+          <img src="images/GRID/Pardo Cafe/IMG_20230417_135230.jpg" alt="Image 5">
+          <img src="images/GRID/Pardo Cafe/IMG_20230417_135337 (1).jpg" alt="Image 5">
+          
+        </div>
+      </div>
+    </div>
+    <div class="grid-item" data-aos="fade-up">
+      <a href="#modal6" class="modal-open">
+        <img src="images/GRID/SALA MIAU/IMG_20230525_154156 (1).jpg" alt="Image 6">
+      </a>
+      <div id="modal6" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <img src="images/GRID/SALA MIAU/IMG_20230515_101232 (1).jpg" alt="Image 6">
+          <img src="images/GRID/SALA MIAU/IMG_20230525_154007.jpg" alt="Image 6">
+          <img src="images/GRID/SALA MIAU/IMG_20230525_154131.jpg" alt="Image 6">
+          <img src="images/GRID/SALA MIAU/IMG_20230525_154225.jpg" alt="Image 6">
+          <img src="images/GRID/SALA MIAU/IMG_20230525_155355.jpg" alt="Image 6">
+
+
+
+
+        </div>
+      </div>
+    </div>
+    <div class="grid-item" data-aos="fade-up">
+      <a href="#modal7" class="modal-open">
+        <img src="images/GRID/Silla Ale Jazo/IMG_20230713_161614.jpg" alt="Image 7">
+      </a>
+      <div id="modal7" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <img src="images/GRID/Silla Ale Jazo/IMG_20230613_134935.jpg" alt="Image 7">
+          <img src="images/GRID/Silla Ale Jazo/IMG_20230713_161625.jpg" alt="Image 7">
+          <img src="images/GRID/Silla Ale Jazo/IMG_20230713_161639.jpg" alt="Image 7">
+          <img src="images/GRID/Silla Ale Jazo/IMG_20230713_162016.jpg" alt="Image 7">
+          <img src="images/GRID/Silla Ale Jazo/IMG_20230713_164307.jpg" alt="Image 7">
+        </div>
+      </div>
+    </div>
+    <div class="grid-item" data-aos="fade-up">
+      <a href="#modal8" class="modal-open">
+        <img src="images/GRID/Sillas Jusely/DSC00287.jpg" alt="Image 8">
+      </a>
+      <div id="modal8" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <img src="images/GRID/Sillas Jusely/IMG_20210817_160211.jpg" alt="Image 8">
+          <img src="images/GRID/Sillas Jusely/DSC00283.jpg" alt="Image 8">
+          <img src="images/GRID/Sillas Jusely/DSC00300.jpg" alt="Image 8">
+          <img src="images/GRID/Sillas Jusely/DSC00298.jpg" alt="Image 8">
+          <img src="images/GRID/Sillas Jusely/DSC00288.jpg" alt="Image 8">
+
+        </div>
+      </div>
+    </div>
+    <div class="grid-item" data-aos="fade-up">
+      <a href="#modal9" class="modal-open">
+        <img src="images/GRID/Sillas Naranjas/DSC00329.jpg" alt="Image 9">
+      </a>
+      <div id="modal9" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <img src="images/GRID/Sillas Naranjas/DSC00254.jpg" alt="Image 9">
+          <img src="images/GRID/Sillas Naranjas/DSC00320.jpg" alt="Image 9">
+          <img src="images/GRID/Sillas Naranjas/DSC00325.jpg" alt="Image 9">
+          <img src="images/GRID/Sillas Naranjas/DSC00326.jpg" alt="Image 9">
+          <img src="images/GRID/Sillas Naranjas/DSC00327.jpg" alt="Image 9">
+ 
+
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
+<style>
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .grid-item {
+    position: relative;
+  }
+  .grid-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+  }
+  .modal-content {
+    background-color: #ffa0d2;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  // Get the modal elements
+  var modals = document.querySelectorAll('.modal');
+
+  // Get the button that opens the modal
+  var modalBtns = document.querySelectorAll('.modal-open');
+
+  // Get the <span> element that closes the modal
+  var spans = document.getElementsByClassName("close");
+
+  // When the user clicks on the button, open the modal
+  modalBtns.forEach(function(btn, index) {
+    btn.onclick = function() {
+      modals[index].style.display = "block";
+    }
+  });
+
+  // When the user clicks on <span> (x), close the modal
+  Array.from(spans).forEach(function(span, index) {
+    span.onclick = function() {
+      modals[index].style.display = "none";
+    }
+  });
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+      event.target.style.display = "none";
+    }
+  }
+</script>
+
 
 
 
@@ -353,55 +432,44 @@
         <h2>Servicios</h2>
       </div>
       <div data-aos="fade-up-left">
-        <p>
-          Aliquam ut ex ut augue consectetur interdum. Donec amet
-          imperdiet eleifend<br />
-          fringilla tincidunt. Nullam dui leo Aenean mi ligula, rhoncus
-          ullamcorper.
-        </p>
+        
       </div>
     </header>
     <ul class="features" id="featureList">
-      <li class="icon solid fa-headphones-alt" data-aos="fade-left" data-aos-duration="800">
-        <h3 data-aos="zoom-in" data-aos-delay="50">Servicio 1</h3>
+      <li  data-aos="fade-left" data-aos-duration="800">
+        <h3 data-aos="zoom-in" data-aos-delay="50">TAPICERÍA</h3>
         <p data-aos="fade" data-aos-delay="100">
-          Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem
-          tincidunt nullam amet leo Aenean ligula consequat consequat.
+          Ofrecemos servicios de tapicería para renovar y personalizar tus muebles con los mejores materiales y diseños.
         </p>
       </li>
-      <li class="icon solid fa-gem" data-aos="fade-right" data-aos-duration="900" data-aos-delay="100">
-        <h3 data-aos="zoom-in" data-aos-delay="150">Servicio 2</h3>
+      <li c data-aos="fade-right" data-aos-duration="900" data-aos-delay="100">
+        <h3 data-aos="zoom-in" data-aos-delay="150">RESTAURACIÓN DE ACABADOS</h3>
         <p data-aos="fade" data-aos-delay="200">
-          Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem
-          tincidunt nullam amet leo Aenean ligula consequat consequat.
+          Renovamos los acabados de tus muebles para que luzcan como nuevos y resalten en cualquier ambiente.
         </p>
       </li>
-      <li class="icon solid fa-code" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="200">
-        <h3 data-aos="zoom-in" data-aos-delay="250">Servicio 3</h3>
+      <li  data-aos="fade-down" data-aos-duration="1000" data-aos-delay="200">
+        <h3 data-aos="zoom-in" data-aos-delay="250">REDISEÑO Y MODIFICACIÓN ESTRUCTURAL</h3>
         <p data-aos="fade" data-aos-delay="300">
-          Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem
-          tincidunt nullam amet leo Aenean ligula consequat consequat.
+          Transformamos tus muebles con diseños innovadores y cambios estructurales para mejorar su funcionalidad y estética.
         </p>
       </li>
-      <li class="icon solid fa-headphones-alt" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="300">
-        <h3 data-aos="zoom-in" data-aos-delay="350">Servicio 4</h3>
+      <li  data-aos="fade-up" data-aos-duration="1100" data-aos-delay="300">
+        <h3 data-aos="zoom-in" data-aos-delay="350">FABRICACIÓN DE MUEBLES SOBRE PEDIDO</h3>
         <p data-aos="fade" data-aos-delay="400">
-          Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem
-          tincidunt nullam amet leo Aenean ligula consequat consequat.
+          Diseñamos y fabricamos muebles a medida para que se adapten perfectamente a tus necesidades y espacio.
         </p>
       </li>
-      <li class="icon fa-heart" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="400">
-        <h3 data-aos="zoom-in" data-aos-delay="450">Servicio 5</h3>
+      <li  data-aos="fade-right" data-aos-duration="1200" data-aos-delay="400">
+        <h3 data-aos="zoom-in" data-aos-delay="450">CURSOS Y TALLERES DE RESTAURACIÓN DE MUEBLES</h3>
         <p data-aos="fade" data-aos-delay="500">
-          Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem
-          tincidunt nullam amet leo Aenean ligula consequat consequat.
+          Aprende técnicas profesionales de restauración y dale nueva vida a tus muebles en nuestros cursos y talleres.
         </p>
       </li>
-      <li class="icon fa-flag" data-aos="fade-left" data-aos-duration="1300" data-aos-delay="500">
-        <h3 data-aos="zoom-in" data-aos-delay="550">Servicio</h3>
+      <li  data-aos="fade-left" data-aos-duration="1300" data-aos-delay="500">
+        <h3 data-aos="zoom-in" data-aos-delay="550">DECORACIÓN TEMÁTICA</h3>
         <p data-aos="fade" data-aos-delay="600">
-          Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem
-          tincidunt nullam amet leo Aenean ligula consequat consequat.
+         Creamos ambientes únicos con decoraciones temáticas que reflejan tu estilo y personalidad.
         </p>
       </li>
     </ul>
@@ -454,12 +522,16 @@
   <div class="content">
     <h2 data-aos="flip-left" data-aos-delay="200">
      ¿Quieres aprender?<br />
-Toma uno de mis cursos para ser más clever.    </h2>
+Toma uno de nuestros cursos para ser más clever.    </h2>
     <p data-aos="fade-up" data-aos-delay="300">
-      Aqui se elabora mas. Lorem ipsum dolor sit, amet consectetur
-      adipisicing elit. Provident similique laboriosam quasi, alias
-      inventore facilis saepe odio architecto ratione ut adipisci esse
-      quas harum veniam quia aspernatur nam doloribus consequatur?
+      Si alguna vez soñaste con revivir ese mueble antiguo y darle una nueva vida, ¡esta es tu oportunidad!
+
+Aprende técnicas de restauración sin necesidad de contar con equipo especializado. No importa si eres principiante o ya tienes experiencia, este curso es para ti. Nuestro objetivo es enseñarte paso a paso cómo transformar tus muebles con tus propias manos.
+
+¡Trae tu propio mueble! Queremos que te involucres por completo en el proceso de restauración. Desde la preparación hasta los detalles finales, te guiaremos en cada etapa. Además daremos mucho enfoque a la etapa de diseño para que te lleves de resultado una pieza única e irrepetible.
+
+Para más información, no dudes en enviarnos un correo, o bien, contactarnos por medio de nuestras redes sociales. Estaremos encantadxs de resolver todas tus dudas y proporcionarte los detalles necesarios.
+
     </p>
   </div>
 </section>
@@ -560,9 +632,34 @@ Toma uno de mis cursos para ser más clever.    </h2>
    </script>
 
     
-      <script>
-     
-      </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      let gridContainer = document.querySelector('.grid-container');
+      let gridItems = Array.from(gridContainer.children);
+      
+      // Shuffle the grid items
+      for (let i = gridItems.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [gridItems[i], gridItems[j]] = [gridItems[j], gridItems[i]];
+      }
+
+      // Clear the container and re-append the items in the new order
+      gridContainer.innerHTML = "";
+      gridItems.forEach(item => gridContainer.appendChild(item));
+  });
+</script>
     
-  </body>
+<!-- Start of OpenWidget (www.openwidget.com) code -->
+<script>
+  window.__ow = window.__ow || {};
+  window.__ow.organizationId = "eb1639bb-0ea8-4d10-a85f-fc48b9ab9dd9";
+  window.__ow.integration_name = "manual_settings";
+  window.__ow.product_name = "openwidget";
+  ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[OpenWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.openwidget.com/openwidget.js",t.head.appendChild(n)}};!n.__ow.asyncInit&&e.init(),n.OpenWidget=n.OpenWidget||e}(window,document,[].slice))
+</script>
+<noscript>You need to <a href="https://www.openwidget.com/enable-javascript" rel="noopener nofollow">enable JavaScript</a> to use the communication tool powered by <a href="https://www.openwidget.com/" rel="noopener nofollow" target="_blank">OpenWidget</a></noscript>
+<!-- End of OpenWidget code -->
+
+</body>
 </html>
+

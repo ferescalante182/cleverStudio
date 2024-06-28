@@ -4407,7 +4407,7 @@ body.is-mobile.landing #footer {
 /*slideshow*/
 /* Slideshow container */
 .slideshow-container {
-  max-width: 1000px; /* You can adjust this value based on your layout */
+  max-width: 100%; /* You can adjust this value based on your layout */
   position: relative;
   margin: auto;
 }
@@ -4578,6 +4578,7 @@ footer a:hover {
 html,
 body {
   overflow-x: hidden; /* Prevents horizontal scroll */
+  
 }
 
 /* Footer Styling */
@@ -4645,9 +4646,8 @@ body {
 }
 
 .grid-item:hover img {
-  transform: scale(1.1); /* Zoom effect on hover */
+  transform: scale(1..05); /* Zoom effect on hover */
 }
-
 /* Modal styling */
 .modal {
   display: none; /* Hidden by default */
@@ -4659,21 +4659,32 @@ body {
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
 }
 
 .modal-content {
   position: relative;
   background-color: #ffa0d2; /* Pink background for the modal content */
-  margin: 10% auto; /* Centered with margin auto */
-  padding: 20px;
-  width: 40%; /* Width adjusted to a percentage for responsiveness */
+  padding: 40px; /* Increased padding for better spacing */
+  width: 80%; /* Adjusted width for larger appearance */
+  max-width: 800px; /* Maximum width */
+  height: 80%; /* Adjusted height for larger appearance */
+  max-height: 90%; /* Maximum height */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  border-radius: 10px; /* Optional: Add rounded corners */
+  text-align: center; /* Center the text inside the modal */
+  overflow: auto; /* Allow scrolling if content is too large */
 }
-
 .close {
   color: #aaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 .close:hover,
@@ -4684,7 +4695,7 @@ body {
 }
 
 /* Responsive adjustments for modals */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 100%) {
   .modal-content {
     width: 90%; /* Full width on smaller screens */
   }
@@ -4696,3 +4707,221 @@ body {
   display: table;
   clear: both;
 }
+
+
+/* Clearfix for floated 'close' button */
+.close::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+  * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        }
+
+        .slideshow-inner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .mySlides {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        .mySlides img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        .dot-container {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active, .dot:hover {
+            background-color: #717171;
+        }
+
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+      }
+
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+      }
+
+      .slideshow-container {
+          position: relative;
+          max-width: 100%;
+          margin: auto;
+          overflow: hidden;
+          padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      }
+
+      .slideshow-inner {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+      }
+
+      .mySlides {
+          display: none;
+          width: 100%;
+          height: 100%;
+      }
+
+      .mySlides img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+      }
+
+      .prev, .next {
+          cursor: pointer;
+          position: absolute;
+          top: 50%;
+          width: auto;
+          padding: 16px;
+          margin-top: -22px;
+          color: white;
+          font-weight: bold;
+          font-size: 18px;
+          transition: 0.6s ease;
+          border-radius: 0 3px 3px 0;
+          user-select: none;
+          background-color: rgba(0,0,0,0.5); /* Semi-transparent background */
+      }
+
+      .next {
+          right: 0;
+          border-radius: 3px 0 0 3px;
+      }
+
+      .prev:hover, .next:hover {
+          background-color: rgba(0,0,0,0.8);
+      }
+
+      .dot-container {
+          text-align: center;
+          padding: 0px;
+          background: rgba(0, 0, 0, 0.5);
+      }
+
+      .dot {
+          cursor: pointer;
+          height: 15px;
+          width: 15px;
+          margin: 0 2px;
+          background-color: #bbb;
+          border-radius: 50%;
+          display: inline-block;
+          transition: background-color 0.6s ease;
+      }
+
+      .active, .dot:hover {
+          background-color: #717171;
+      }
+
+      .slideshow-container {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .slideshow-inner {
+        display: flex;
+        width: 100%;
+    }
+
+    .mySlides {
+        flex: 1 0 100%;
+        width: 100%;
+    }
+
+    .mySlides img {
+        width: 100%;
+        display: block;
+    }
+
+    .prev, .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 1000;
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+
+    
