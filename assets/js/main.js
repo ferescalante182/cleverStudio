@@ -77,40 +77,6 @@
 
   AOS.init(); // Initialize AOS
 
-  // MODALS
-  document.addEventListener("DOMContentLoaded", () => {
-    // Open modal function
-    document.querySelectorAll(".modal-open").forEach((item) => {
-      item.addEventListener("click", (event) => {
-        event.preventDefault();
-        const modal = document.querySelector(item.getAttribute("href"));
-        modal.style.display = "block";
-      });
-    });
-
-    // Close modal function
-    document.querySelectorAll(".close").forEach((button) => {
-      button.addEventListener("click", function () {
-        this.closest(".modal").style.display = "none";
-      });
-    });
-
-    // Close modal on outside click
-    window.addEventListener("click", (event) => {
-      const modal = document.querySelector(".modal");
-      if (event.target === modal) {
-        modal.style.display = "none";
-      }
-    });
-  });
-
-  function closeModal(modalId) {
-    const modal = document.querySelector(modalId);
-    modal.style.display = "none";
-    modal.setAttribute("aria-hidden", "true");
-    document.querySelector("body").style.pointerEvents = "auto";
-  }
-
   // Swiper initialization
   const swiper = new Swiper(".swiperCarousel", {
     slidesPerView: 3,
@@ -148,35 +114,6 @@
   resizeTextToFit();
   addEventListener("resize", resizeTextToFit);
 
-  // Get the modal elements
-  var modals = document.querySelectorAll('.modal');
-
-  // Get the button that opens the modal
-  var modalBtns = document.querySelectorAll('.modal-open');
-
-  // Get the <span> element that closes the modal
-  var spans = document.getElementsByClassName("close");
-
-  // When the user clicks on the button, open the modal
-  modalBtns.forEach(function(btn, index) {
-    btn.onclick = function() {
-      modals[index].style.display = "block";
-    }
-  });
-
-  // When the user clicks on <span> (x), close the modal
-  Array.from(spans).forEach(function(span, index) {
-    span.onclick = function() {
-      modals[index].style.display = "none";
-    }
-  });
-
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function(event) {
-    if (event.target.classList.contains('modal')) {
-      event.target.style.display = "none";
-    }
-  }
 
 
   document.addEventListener("DOMContentLoaded", function() {
@@ -212,5 +149,121 @@
       array[j] = temp;
     }
     return array;
+
+  }
+
+ function openModal(imageIndex) {
+    const modal = document.getElementById('modal');
+    const modalContent = document.getElementById('modal-content');
+
+    // Clear previous content
+    modalContent.innerHTML = '';
+
+    // Add related images based on clicked image index
+    let relatedImages = [];
+
+    switch(imageIndex) {
+      case 1:
+        relatedImages = [
+          'images/GRID/Banca Ale Jazo/baj1.jpg',
+          'images/GRID/Banca Ale Jazo/baj3.jpg',
+          'images/GRID/Banca Ale Jazo/baj5.jpg',
+          'images/GRID/Banca Ale Jazo/baj7.jpg',
+          'images/GRID/Banca Ale Jazo/baj10.jpg',
+        ];
+        break;
+      case 2:
+        relatedImages = [
+          'images/grid/librero navajo/ln-1.jpg',
+          'images/grid/librero navajo/ln-3.jpg',
+          'images/grid/librero navajo/ln-5.jpg',
+          'images/grid/librero navajo/ln-7.jpg',
+          'images/grid/librero navajo/ln-2.jpg'
+        ];
+        break;
+      case 3:
+        relatedImages = [
+          'images/grid/mesa de media luna/mml-1.jpg',
+          'images/grid/mesa de media luna/mml-2.jpg',
+          'images/grid/mesa de media luna/mml-3.jpg',
+          'images/grid/mesa de media luna/mml-5.jpg',
+          'images/grid/mesa de media luna/mml-6.jpg'
+        ];
+        break;
+      case 4:
+        relatedImages = [
+          'images/GRID/Sillas Jusely/sj-12.jpg',
+          'images/GRID/Sillas Jusely/sj-2.jpg',
+          'images/GRID/Sillas Jusely/sj-4.jpg',
+          'images/GRID/Sillas Jusely/sj-7.jpg',
+          'images/GRID/Sillas Jusely/sj-9.jpg'
+        ];
+        break;
+      case 5:
+        relatedImages = [
+          'images/GRID/Pardo Cafe/pardo-1.jpg',
+          'images/GRID/Pardo Cafe/pardo-2.jpg',
+          'images/GRID/Pardo Cafe/pardo-3.jpg',
+          'images/GRID/Pardo Cafe/pardo-4.jpg',
+          'images/GRID/Pardo Cafe/pardo-5.jpg'
+        ];
+        break;
+      case 6:
+        relatedImages = [
+          'images/GRID/SALA MIAU/sm-1.jpg',
+          'images/GRID/SALA MIAU/sm-2.jpg',
+          'images/GRID/SALA MIAU/sm-3.jpg',
+          'images/GRID/SALA MIAU/sm-4.jpg',
+          'images/GRID/SALA MIAU/sm-5.jpg',
+        ];
+        break;
+      case 7:
+        relatedImages = [
+          'images/GRID/Sofá Cama Azul/sca-1.jpg',
+          'images/GRID/Sofá Cama Azul/sca-2.jpg',
+          'images/GRID/Sofá Cama Azul/sca-3.jpg',
+          'images/GRID/Sofá Cama Azul/sca-4.jpg',
+          'images/GRID/Sofá Cama Azul/sca-5.jpg',
+        ];
+        break;
+      case 8:
+        relatedImages = [
+          'images/GRID/Silla Ale Jazo/saj-1.jpg',
+          'images/GRID/Silla Ale Jazo/saj-2.jpg',
+          'images/GRID/Silla Ale Jazo/saj-3.jpg',
+          'images/GRID/Silla Ale Jazo/saj-4.jpg',
+          'images/GRID/Silla Ale Jazo/saj-5.jpg',
+        ];
+        break;
+      case 9:
+        relatedImages = [
+          'images/GRID/Booth Amarillo/ba-1.jpg',
+          'images/GRID/Booth Amarillo/ba-2.jpg',
+          'images/GRID/Booth Amarillo/ba-3.jpg',
+          'images/GRID/Booth Amarillo/ba-4.jpg',
+          'images/GRID/Booth Amarillo/ba-5.jpg',
+        ];
+        break;
+    }
+
+    relatedImages.forEach(src => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = 'Related Image';
+      modalContent.appendChild(img);
+    });
+
+    modal.style.display = 'flex';
+  }
+
+  function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+  }
+
+  window.onclick = function(event) {
+    const modal = document.getElementById('modal');
+    if (event.target == modal) {
+      modal.style.display = 'none';
+    }
   }
 })(jQuery);
