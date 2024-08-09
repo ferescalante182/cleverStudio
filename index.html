@@ -215,20 +215,20 @@
         break;
       case 2:
         relatedImages = [
-          'images/grid/librero navajo/ln-1.jpg',
-          'images/grid/librero navajo/ln-3.jpg',
-          'images/grid/librero navajo/ln-5.jpg',
-          'images/grid/librero navajo/ln-7.jpg',
-          'images/grid/librero navajo/ln-2.jpg'
+          'images/GRID/librero navajo/ln-1.jpg',
+          'images/GRID/librero navajo/ln-3.jpg',
+          'images/GRID/librero navajo/ln-5.jpg',
+          'images/GRID/librero navajo/ln-7.jpg',
+          'images/GRID/librero navajo/ln-2.jpg'
         ];
         break;
       case 3:
         relatedImages = [
-          'images/grid/mesa de media luna/mml-1.jpg',
-          'images/grid/mesa de media luna/mml-2.jpg',
-          'images/grid/mesa de media luna/mml-3.jpg',
-          'images/grid/mesa de media luna/mml-5.jpg',
-          'images/grid/mesa de media luna/mml-6.jpg'
+          'images/GRID/mesa de media luna/mml-1.jpg',
+          'images/GRID/mesa de media luna/mml-2.jpg',
+          'images/GRID/mesa de media luna/mml-3.jpg',
+          'images/GRID/mesa de media luna/mml-5.jpg',
+          'images/GRID/mesa de media luna/mml-6.jpg'
         ];
         break;
       case 4:
@@ -585,18 +585,18 @@ Para más información, no dudes en enviarnos un correo, o bien, contactarnos po
     
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-      let gridContainer = document.querySelector('.grid-container');
-      let gridItems = Array.from(gridContainer.children);
+      let GRIDContainer = document.querySelector('.GRID-container');
+      let GRIDItems = Array.from(GRIDContainer.children);
       
-      // Shuffle the grid items
-      for (let i = gridItems.length - 1; i > 0; i--) {
+      // Shuffle the GRID items
+      for (let i = GRIDItems.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
-          [gridItems[i], gridItems[j]] = [gridItems[j], gridItems[i]];
+          [GRIDItems[i], GRIDItems[j]] = [GRIDItems[j], GRIDItems[i]];
       }
 
       // Clear the container and re-append the items in the new order
-      gridContainer.innerHTML = "";
-      gridItems.forEach(item => gridContainer.appendChild(item));
+      GRIDContainer.innerHTML = "";
+      GRIDItems.forEach(item => GRIDContainer.appendChild(item));
   });
 </script>
     
